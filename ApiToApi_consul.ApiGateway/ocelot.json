@@ -1,0 +1,20 @@
+{
+  "Routes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/catalog/{anything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "ApiToApi_consul.service1",
+      "UpstreamPathTemplate": "/api/gateway/catalog/{anything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ReRoutesCaseSensitive": false
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul" 
+    } 
+  }
+}
